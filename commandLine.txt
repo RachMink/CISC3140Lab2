@@ -1,0 +1,84 @@
+Last login: Tue Jul 20 13:34:50 on ttys000
+rachelminkowitz@Rachels-MacBook-Pro ~ % cd Documents 
+rachelminkowitz@Rachels-MacBook-Pro Documents % cd 'CISC 3140 Summer 2021/'
+rachelminkowitz@Rachels-MacBook-Pro CISC 3140 Summer 2021 % cd Lab2.1
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git init
+Initialized empty Git repository in /Users/rachelminkowitz/Documents/CISC 3140 Summer 2021/Lab2.1/.git/
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git add firstFile.txt
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git commit
+[main (root-commit) 2f84a4b] first commit through git
+ 1 file changed, 2 insertions(+)
+ create mode 100644 firstFile.txt
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git status
+On branch main
+nothing to commit, working tree clean
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git remote add origin https://github.com/RachMink/CISC3140Lab2.git
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 268 bytes | 268.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/RachMink/CISC3140Lab2.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % ssh rminkowi@146.245.252.31
+Access to Brooklyn College computers is restricted to authorized users
+        and approved educational and research purposes, only.
+ ATTENTION. YOU CAN LOG INTO THIS LINUX WORKSTATION AND OTHER LINUX WORKSTATIONS
+ WITH THESE IP ADDRESSES: 146.245.252.25, 146.245.252.26, 146.245.252.31
+For questions about the Linux system email me at
+rpatitucci@brooklyn.cuny.edu
+rminkowi@146.245.252.31's password: 
+Last login: Tue Jul 20 13:39:31 2021 from 47.21.27.68
+[rminkowi@sol31 ~]$ svn co --depth empty https://github.com/RachMink/CISC3140Lab2.git
+Checked out revision 1.
+[rminkowi@sol31 ~]$ cd CISC3140Lab2.git
+[rminkowi@sol31 CISC3140Lab2.git]$ svn up trunk
+Updating 'trunk':
+A    trunk
+A    trunk/firstFile.txt
+Updated to revision 1.
+[rminkowi@sol31 CISC3140Lab2.git]$ svn up --depth empty branches
+Updating 'branches':
+A    branches
+Updated to revision 1.
+[rminkowi@sol31 CISC3140Lab2.git]$ svn up trunk
+Updating 'trunk':
+At revision 1.
+[rminkowi@sol31 CISC3140Lab2.git]$ svn copy trunk branches/secondFile
+A         branches/secondFile
+[rminkowi@sol31 CISC3140Lab2.git]$ svn commit -m 'added secondFile topic branch'
+Authentication realm: <https://github.com:443> GitHub
+Password for 'rminkowi': 
+Authentication realm: <https://github.com:443> GitHub
+Username: RachMink
+Password for 'RachMink': 
+
+-----------------------------------------------------------------------
+ATTENTION!  Your password for authentication realm:
+
+   <https://github.com:443> GitHub
+
+can only be stored to disk unencrypted!  You are advised to configure
+your system so that Subversion can store passwords encrypted, if
+possible.  See the documentation for details.
+
+You can avoid future appearances of this warning by setting the value
+of the 'store-plaintext-passwords' option to either 'yes' or 'no' in
+'/users1/st/rminkowi/.subversion/servers'.
+-----------------------------------------------------------------------
+Store password unencrypted (yes/no)? yes
+Adding         branches/secondFile
+
+Committed revision 3.
+[rminkowi@sol31 CISC3140Lab2.git]$ vim trunk/firstFile.txt
+[rminkowi@sol31 CISC3140Lab2.git]$ svn status
+M       trunk/firstFile.txt
+[rminkowi@sol31 CISC3140Lab2.git]$ vim trunk/firstFile.txt
+[rminkowi@sol31 CISC3140Lab2.git]$ svn status
+M       trunk/firstFile.txt
+[rminkowi@sol31 CISC3140Lab2.git]$ svn commit -m 'commit after vim edit'
+Sending        trunk/firstFile.txt
+Transmitting file data .
+Committed revision 4.
+[rminkowi@sol31 CISC3140Lab2.git]$ 
