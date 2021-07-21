@@ -1,2 +1,0 @@
-Hello this is the first file in Lab2.1
-this is an edit that we needed to write
