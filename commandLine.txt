@@ -1,27 +1,5 @@
-Last login: Tue Jul 20 13:34:50 on ttys000
-rachelminkowitz@Rachels-MacBook-Pro ~ % cd Documents 
-rachelminkowitz@Rachels-MacBook-Pro Documents % cd 'CISC 3140 Summer 2021/'
-rachelminkowitz@Rachels-MacBook-Pro CISC 3140 Summer 2021 % cd Lab2.1
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git init
-Initialized empty Git repository in /Users/rachelminkowitz/Documents/CISC 3140 Summer 2021/Lab2.1/.git/
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git add firstFile.txt
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git commit
-[main (root-commit) 2f84a4b] first commit through git
- 1 file changed, 2 insertions(+)
- create mode 100644 firstFile.txt
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git status
-On branch main
-nothing to commit, working tree clean
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git remote add origin https://github.com/RachMink/CISC3140Lab2.git
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % git push -u origin main
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 268 bytes | 268.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-To https://github.com/RachMink/CISC3140Lab2.git
- * [new branch]      main -> main
-Branch 'main' set up to track remote branch 'main' from 'origin'.
-rachelminkowitz@Rachels-MacBook-Pro Lab2.1 % ssh rminkowi@146.245.252.31
+Last login: Tue Jul 20 14:51:49 on ttys000
+rachelminkowitz@Rachels-MacBook-Pro ~ % ssh rminkowi@146.245.252.31
 Access to Brooklyn College computers is restricted to authorized users
         and approved educational and research purposes, only.
  ATTENTION. YOU CAN LOG INTO THIS LINUX WORKSTATION AND OTHER LINUX WORKSTATIONS
@@ -29,56 +7,116 @@ Access to Brooklyn College computers is restricted to authorized users
 For questions about the Linux system email me at
 rpatitucci@brooklyn.cuny.edu
 rminkowi@146.245.252.31's password: 
-Last login: Tue Jul 20 13:39:31 2021 from 47.21.27.68
-[rminkowi@sol31 ~]$ svn co --depth empty https://github.com/RachMink/CISC3140Lab2.git
-Checked out revision 1.
-[rminkowi@sol31 ~]$ cd CISC3140Lab2.git
-[rminkowi@sol31 CISC3140Lab2.git]$ svn up trunk
-Updating 'trunk':
-A    trunk
-A    trunk/firstFile.txt
-Updated to revision 1.
-[rminkowi@sol31 CISC3140Lab2.git]$ svn up --depth empty branches
-Updating 'branches':
-A    branches
-Updated to revision 1.
-[rminkowi@sol31 CISC3140Lab2.git]$ svn up trunk
-Updating 'trunk':
-At revision 1.
-[rminkowi@sol31 CISC3140Lab2.git]$ svn copy trunk branches/secondFile
-A         branches/secondFile
-[rminkowi@sol31 CISC3140Lab2.git]$ svn commit -m 'added secondFile topic branch'
-Authentication realm: <https://github.com:443> GitHub
-Password for 'rminkowi': 
-Authentication realm: <https://github.com:443> GitHub
-Username: RachMink
-Password for 'RachMink': 
+Last login: Tue Jul 20 15:04:49 2021 from 47.21.27.68
+[rminkowi@sol31 ~]$ svnadmin create newFile
+[rminkowi@sol31 ~]$ ls
+CISC3140Lab2.git  lab2.1  Lab2.1  newFile  newFile1.txt
+[rminkowi@sol31 ~]$ cd newFile
+[rminkowi@sol31 newFile]$ ls
+conf  db  format  hooks  locks  README.txt
+[rminkowi@sol31 newFile]$ svn help
+usage: svn <subcommand> [options] [args]
+Subversion command-line client, version 1.7.14.
+Type 'svn help <subcommand>' for help on a specific subcommand.
+Type 'svn --version' to see the program version and RA modules
+  or 'svn --version --quiet' to see just the version number.
 
------------------------------------------------------------------------
-ATTENTION!  Your password for authentication realm:
+Most subcommands take file and/or directory arguments, recursing
+on the directories.  If no arguments are supplied to such a
+command, it recurses on the current directory (inclusive) by default.
 
-   <https://github.com:443> GitHub
+Available subcommands:
+   add
+   blame (praise, annotate, ann)
+   cat
+   changelist (cl)
+   checkout (co)
+   cleanup
+   commit (ci)
+   copy (cp)
+   delete (del, remove, rm)
+   diff (di)
+   export
+   help (?, h)
+   import
+   info
+   list (ls)
+   lock
+   log
+   merge
+   mergeinfo
+   mkdir
+   move (mv, rename, ren)
+   patch
+   propdel (pdel, pd)
+   propedit (pedit, pe)
+   propget (pget, pg)
+   proplist (plist, pl)
+   propset (pset, ps)
+   relocate
+   resolve
+   resolved
+   revert
+   status (stat, st)
+   switch (sw)
+   unlock
+   update (up)
+   upgrade
 
-can only be stored to disk unencrypted!  You are advised to configure
-your system so that Subversion can store passwords encrypted, if
-possible.  See the documentation for details.
-
-You can avoid future appearances of this warning by setting the value
-of the 'store-plaintext-passwords' option to either 'yes' or 'no' in
-'/users1/st/rminkowi/.subversion/servers'.
------------------------------------------------------------------------
-Store password unencrypted (yes/no)? yes
-Adding         branches/secondFile
-
-Committed revision 3.
-[rminkowi@sol31 CISC3140Lab2.git]$ vim trunk/firstFile.txt
-[rminkowi@sol31 CISC3140Lab2.git]$ svn status
-M       trunk/firstFile.txt
-[rminkowi@sol31 CISC3140Lab2.git]$ vim trunk/firstFile.txt
-[rminkowi@sol31 CISC3140Lab2.git]$ svn status
-M       trunk/firstFile.txt
-[rminkowi@sol31 CISC3140Lab2.git]$ svn commit -m 'commit after vim edit'
-Sending        trunk/firstFile.txt
+Subversion is a tool for version control.
+For additional information, see http://subversion.apache.org/
+[rminkowi@sol31 newFile]$ pwd
+/users1/st/rminkowi/newFile
+[rminkowi@sol31 newFile]$ ls
+conf  db  format  hooks  locks  README.txt  unicorn.txt
+[rminkowi@sol31 newFile]$ svn checkout file:////users1/st/rminkowi/newFile fairyDust
+Checked out revision 0.
+[rminkowi@sol31 newFile]$ cd fairyDust
+[rminkowi@sol31 fairyDust]$ ls
+[rminkowi@sol31 fairyDust]$ cd ..
+[rminkowi@sol31 newFile]$ ls
+conf  db  fairyDust  format  hooks  locks  newFile  README.txt  unicorn.txt
+[rminkowi@sol31 newFile]$ cd fairyDust
+[rminkowi@sol31 fairyDust]$ ll
+total 0
+[rminkowi@sol31 fairyDust]$ vim tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ svn add tinkerBell.txt
+A         tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ ls
+tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ svn commit -m 'first commit- commiting tinkerBell text file into the fairyDust working copy'
+Adding         tinkerBell.txt
 Transmitting file data .
-Committed revision 4.
-[rminkowi@sol31 CISC3140Lab2.git]$ 
+Committed revision 1.
+[rminkowi@sol31 fairyDust]$ ls
+tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ svn update
+Updating '.':
+At revision 1.
+[rminkowi@sol31 fairyDust]$ ls
+tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ svn log
+------------------------------------------------------------------------
+r1 | rminkowi | 2021-07-21 13:55:38 -0400 (Wed, 21 Jul 2021) | 1 line
+
+first commit- commiting tinkerBell text file into the fairyDust working copy
+------------------------------------------------------------------------
+[rminkowi@sol31 fairyDust]$ vim tinkerBell.txt
+[rminkowi@sol31 fairyDust]$ svn commit -m 'second commit after edits in tinkerBell.txt'
+Sending        tinkerBell.txt
+Transmitting file data .
+Committed revision 2.
+[rminkowi@sol31 fairyDust]$ svn update
+Updating '.':
+At revision 2.
+[rminkowi@sol31 fairyDust]$ svn log
+------------------------------------------------------------------------
+r2 | rminkowi | 2021-07-21 14:08:17 -0400 (Wed, 21 Jul 2021) | 1 line
+
+second commit after edits in tinkerBell.txt
+------------------------------------------------------------------------
+r1 | rminkowi | 2021-07-21 13:55:38 -0400 (Wed, 21 Jul 2021) | 1 line
+
+first commit- commiting tinkerBell text file into the faiyDust working copy
+------------------------------------------------------------------------
+[rminkowi@sol31 fairyDust]$ 
