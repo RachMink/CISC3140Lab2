@@ -1,5 +1,5 @@
-# CISC3140Lab2
-exploring the use of SVN
+# exploring the use of SVN
+SVN vs git
 
 
 | git Command  | Description| svn Command |
